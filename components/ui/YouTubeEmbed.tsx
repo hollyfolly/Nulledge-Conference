@@ -8,6 +8,7 @@ interface YouTubeEmbedProps {
   title: string;
   published?: string;
   speakers?: string;
+  moderators?: string;
   chatFile?: string;
 }
 
@@ -16,6 +17,7 @@ export default function YouTubeEmbed({
   title,
   published,
   speakers,
+  moderators,
   chatFile,
 }: YouTubeEmbedProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,11 +62,18 @@ export default function YouTubeEmbed({
           </h3>
           {/** lets have one row on left side for speakers, right side for published date */}
           <div className="flex justify-between mt-1">
-            {speakers && (
-              <p className="text-xs text-muted-foreground">
-                {speakers}
-              </p>
-            )}
+            <div className="flex flex-col">
+              {speakers && (
+                <p className="text-xs text-muted-foreground">
+                  {speakers}
+                </p>
+              )}
+              {moderators && (
+                <p className="text-xs text-yellow-400/70">
+                  🎙 {moderators}
+                </p>
+              )}
+            </div>
             {published && (
               <p className="text-xs text-muted-foreground">
                 {published}
@@ -139,11 +148,18 @@ export default function YouTubeEmbed({
             <div className="p-4 bg-card border-t flex-shrink-0">
               <h2 className="text-lg font-medium">{title}</h2>
               <div className="flex justify-between mt-1">
-                {speakers && (
-                  <p className="text-sm text-muted-foreground">
-                    {speakers}
-                  </p>
-                )}
+                <div className="flex flex-col">
+                  {speakers && (
+                    <p className="text-sm text-muted-foreground">
+                      {speakers}
+                    </p>
+                  )}
+                  {moderators && (
+                    <p className="text-sm text-yellow-400/70">
+                      🎙 {moderators}
+                    </p>
+                  )}
+                </div>
                 {published && (
                   <p className="text-sm text-muted-foreground">
                     {published}

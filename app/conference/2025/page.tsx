@@ -154,6 +154,7 @@ export default async function Conference2025Page() {
                                   title={sessions[0].title}
                                   published={formatLocalTime(sessions[0].published)}
                                   speakers={sessions[0].speakers.toString()}
+                                  moderators={sessions[0].moderators?.toString()}
                                   chatFile={sessions[0].chat}
                                 />
                               ) : (
@@ -187,6 +188,7 @@ export default async function Conference2025Page() {
                                         title={session.title}
                                         published={formatLocalTime(session.published)}
                                         speakers={session.speakers.toString()}
+                                        moderators={session.moderators?.toString()}
                                         chatFile={session.chat}
                                       />
                                     ) : (
